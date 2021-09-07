@@ -5,7 +5,7 @@ using System.Text;
 
 namespace exercice_classe.Modeles
 {
-    class TypeBorne
+    public class TypeBorne
     {
         #region attributs
         private string _codeTypeBorne;

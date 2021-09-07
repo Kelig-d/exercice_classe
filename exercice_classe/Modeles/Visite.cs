@@ -4,7 +4,7 @@ using System.Text;
 
 namespace exercice_classe.Modeles
 {
-    class Visite
+    public class Visite
     {
         #region attributs
         private char _etat;
@@ -20,21 +20,38 @@ namespace exercice_classe.Modeles
         public char Etat { get => _etat; set => _etat = value; }
         public int DureeTotale { get => _dureeTotale; set => _dureeTotale = value; }
         public Station LaStation { get => _laStation; set => _laStation = value; }
+        public List<Borne> LesBornes { get => _lesBornes; set => _lesBornes = value; }
 
         #endregion
 
         #region constructeur
-        public Visite(char etat, int duree,Station station)
+        public Visite(char etat, int duree,Station station,List<Borne>bornes)
         {
             CollClass.Add(this);
             _etat = etat;
             _dureeTotale = duree;
             _laStation = station;
+            _lesBornes = bornes;
+        }
+
+        public Visite()
+        {
         }
         #endregion
 
         #region methodes
-
+        public int GetDureeTotale()
+        {
+            return this.DureeTotale;
+        }
+        public int GetEtat()
+        {
+            return this.Etat;
+        }
+        public void ChangerEtat(char etat)
+        {
+            this.Etat = etat;
+        }
         #endregion
     }
 }

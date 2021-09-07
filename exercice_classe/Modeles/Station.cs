@@ -5,7 +5,7 @@ using System.Text;
 
 namespace exercice_classe.Modeles
 {
-    class Station
+    public class Station
     {
         #region attributs
         private int _idStation;
@@ -18,6 +18,7 @@ namespace exercice_classe.Modeles
         #region getter/setter
         public int IdStation { get => _idStation; set => _idStation = value; }
         public string LibelleEmplacement { get => _libelleEmplacement; set => _libelleEmplacement = value; }
+        public List<Borne> LesBornes { get => _lesBornes; set => _lesBornes = value; }
 
         #endregion
 
@@ -43,7 +44,15 @@ namespace exercice_classe.Modeles
 
         public Visite GetVisiteAFaire()
         {
-            return this;
+            Visite result= new Visite();
+            foreach(Visite visite in Visite.CollClass)
+            {
+                if(visite.LaStation == this)
+                {
+                    result = visite;
+                }
+            }
+            return result;
         }
         #endregion
     }
