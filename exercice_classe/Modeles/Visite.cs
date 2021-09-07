@@ -25,13 +25,17 @@ namespace exercice_classe.Modeles
         #endregion
 
         #region constructeur
-        public Visite(char etat, int duree,Station station,List<Borne>bornes)
+        public Visite(Station station,List<Borne>bornes)
         {
             CollClass.Add(this);
-            _etat = etat;
-            _dureeTotale = duree;
+            _etat = 'p';
             _laStation = station;
             _lesBornes = bornes;
+            _dureeTotale = 0;
+            foreach(Borne borne in _lesBornes)
+            {
+                _dureeTotale += borne.LeType.DureeRevision;
+            }
         }
 
         public Visite()

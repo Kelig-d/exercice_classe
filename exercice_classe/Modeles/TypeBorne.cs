@@ -31,6 +31,7 @@ namespace exercice_classe.Modeles
             _codeTypeBorne = codeTypeBorne;
             _nbJoursEntreRevisions = nbjoursR;
             _nbUnitesEntreRevisions = nbunites;
+            _dureeRevision = duree;
         }
         #endregion
 

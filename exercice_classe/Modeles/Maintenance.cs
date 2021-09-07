@@ -34,6 +34,7 @@ namespace exercice_classe.Modeles
 
         public void AffecterVisite()
         {
+            this.Reviser();
             foreach (Visite laVisite in lesVisites)
             {
                 int heures = Int32.MaxValue;
@@ -47,6 +48,7 @@ namespace exercice_classe.Modeles
                     }
                 }
                 leTechnicien.AffecterVisite(laVisite);
+                laVisite.Etat = 'a';
             }
         }
         #endregion
