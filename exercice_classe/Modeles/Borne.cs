@@ -39,7 +39,7 @@ namespace exercice_classe.Modeles
         #region methodes
         public int GetDureeRevision()
         {
-            return this.LeType.DureeRevision;
+            return this.LeType.GetDureeRevision();
         }
 
         public bool EstARevisier()
@@ -47,7 +47,8 @@ namespace exercice_classe.Modeles
             Borne borne = this;
             TypeBorne type = this.LeType;
             bool result = false;
-            if(Convert.ToInt32(DateTime.Now - borne.DateDerniereRevision) > type.NbJoursEntreRevisions ||borne.IndiceCompteurUnites > type.NbUnitesEntreRevisions)
+            TimeSpan ecart = DateTime.Now - borne.DateDerniereRevision;
+            if (ecart.Days> type.NbJoursEntreRevisions ||borne.IndiceCompteurUnites > type.NbUnitesEntreRevisions)
             {
                 result = true;
             }

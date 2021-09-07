@@ -12,20 +12,27 @@ namespace exercice_classe.Modeles.Tests
         [TestMethod()]
         public void GetDureeRevisionTest()
         {
-            var station = new Station("Stalingrad");
             var type1 = new TypeBorne("fg12", 30, 14, 100);
             var b1 = new Borne(DateTime.Now, 0, type1);
-            var b2 = new Borne(DateTime.Now, 110, type1);
-            List<Borne> lesBornes = new List<Borne>();
-            lesBornes.Add(b1);
-            lesBornes.Add(b2);
-            var v1 = new Visite(station, lesBornes);
+            Assert.AreEqual(30, b1.GetDureeRevision());
         }
 
         [TestMethod()]
-        public void EstARevisierTest()
+        public void EstARevisierTestUnite()
         {
-            Assert.Fail();
+            var type1 = new TypeBorne("fg12", 30, 14, 100);
+            var b1 = new Borne(DateTime.Now, 110, type1);
+            Assert.IsTrue(b1.EstARevisier());
+
+        }
+        [TestMethod()]
+        public void EstARevisierTestTemps()
+        {
+            var type1 = new TypeBorne("fg12", 30, 14, 100);
+            DateTime date = new DateTime(1992, 06, 14);
+            var b1 = new Borne(date, 110, type1);
+            Assert.IsTrue(b1.EstARevisier());
+
         }
     }
 }
